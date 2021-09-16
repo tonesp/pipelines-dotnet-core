@@ -13,5 +13,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET 5.0.x SDK'
+  inputs:
+    version: '5.0.x'
+    performMultiLevelLookup: true
+    includePreviewVersions: true # Required for preview versions
+
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
